@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+
+    <title>Image Captioning</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="row no-gutters p-1">
+        <div class="col-md-6">
+            <div id="imgbody"></div>
+            <div class="hideBlock ">
+                <form id="myForm" action="" method="POST" enctype="multipart/form-data">
+                    <div class="dropzone-wrapper">
+                        <div class="dropzone-desc"><p>Choose an image file or drag it here.</p></div>
+                        <input type="file" name="img_logo" class="dropzone">
+                    </div>
+                </form>
+            </div>
+
+            <div class="twoButtons row no-gutters px-1">
+                <div class="col-6"><button type="button" class="btn btn-danger btn-block" onclick="myFormReset()">Reset The Field</button></div>
+                <div class="col-6"><button type="button" class="btn btn-primary btn-block">Find Me Caption</button></div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card" style="width: 100%;height:100%">
+                <div class="card-header">Image Captioning Tool</div>
+                <div class="card-body ">
+                    <div class="defaultCaption hideBlock">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                    </div>
+                    <div class="defaultCaption  "></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="function.js"></script>
+</body>
+</html>
