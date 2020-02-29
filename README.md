@@ -1,3 +1,3 @@
 # ImageCaptioningWebApp
 
-Add the model (model_18.h5) in the same folder.
+Add the model (model_and_heights.h5) in the same folder.
