@@ -42,8 +42,8 @@
                 <ul class="header-nav">
                     <li class="current"><a class="smoothscroll" href="#home" title="home">Home</a></li>
                     <li><a class="smoothscroll" href="#ictool" title="ictool">ICTool</a></li>
-                    <li><a class="smoothscroll" href="#about" title="about">About</a></li>
-                    <li><a class="smoothscroll" href="#contact" title="contact">Contact</a></li>
+                    <li><a class="smoothscroll" href="#livetest" title="livetest">Use Camera</a></li>
+                    <li><a class="smoothscroll" href="#contact" title="about us">About Us</a></li>
                 </ul>
             </nav> <!-- end header-nav-wrap -->
             <a class="header-menu-toggle" href="#0">
@@ -115,7 +115,7 @@
                     <div class="hideBlock">
                         <h1 class="display-1" style="color: #fc6b03; font-size: 36px">Image Caption Generation</h1>
                         <p class="lead">
-                            Quia iusto totam facilis ut atque quidem quis maiores iure. Facilis mollitia enim illo sed et totam commodi.
+                            I'm an Algorithm which understand images. Upload an image and I will try my best to describe it. <br>Note : Nobody's perfect.
                         </p>
                     </div>
                     <div id="newCaption" class="showBlock d-none">{{prediction}}
@@ -124,64 +124,65 @@
             </div>
         </div>
     </section> <!-- end s-ICTool -->
-    <!-- about
+    <!-- livetest
     ================================================== -->
-    <section id="about" class="s-about target-section">
-        <div class="row section-header" data-aos="fade-up">
-            <div class="col-full">
-
-                <h3 data-num="01" class="subhead">Who We Are</h3>
-                <h1 class="display-1">
-                    Stellar is a branding agency based in Somewhere. We design thoughtful digital
-                    experiences and beautiful brand aesthetics.
-                </h1>
-                <div id="ret">hello ji</div>
-                <p id="mujenahipata" class="lead">
-                    Quia iusto totam facilis ut atque quidem quis maiores iure. Facilis mollitia enim illo sed et totam commodi. Velit a recusandae sequi consequatur est dolorum. Eaque accusantium praesentium ut omnis. Laboriosam reprehenderit commodi assumenda.
-                </p>
+    <section id="livetest" class="s-about target-section">
+        <div class="row text-center" style="margin-top: -10px;">
+            <div class="col-twelve tab-full">
+                <h1 class="display-1">Open Camera to Test Image</h1>
             </div>
         </div>
-
-        <div class="row about-process block-1-2 block-tab-full">
-            <div class="col-block item-process">
-                <div class="item-process__header item-process__header--planning">
-                    <h3>Planning</h3>
+        <div class="row" id="valueCaptioncam">
+            <div class="col-six tab-full" style="margin-bottom:40px;">
+                <div id="imgbodycam"></div>
+                <div class="">
+                    <div id="my_camera" style="height:380px;width:100%;border:2px solid black; text-align:center;">Coming Soon</div>
                 </div>
-                <p>
-                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla porttitor accumsan tincidunt. Cras ultricies ligula sed magna dictum porta.
-                </p>
+
+                <div class="row hideBlockcam d-none">
+                    <div class="col-six tab-full"><button type="button" class="btn btn--stroke full-width" style="color: #f28722;" onclick="myCamReset()">Reset The Field</button></div>
+                    <div class="col-six tab-full"><button type="button" id="findCaptioncam" class="btn btn--primary full-width">Find Me Caption</button></div>
+                </div>
             </div>
 
-            <div class="col-block item-process">
-                <div class="item-process__header item-process__header--implementation">
-                    <h3>Implementation</h3>
+            <div class="col-six tab-full">
+                <div class="row section-header" style="width: 100%;height:100%">
+                    <div class="hideBlockcam">
+                        <h1 class="display-1" style="color: #fc6b03; font-size: 36px">UNDER CONSTRUCTION</h1>
+                        <p class="lead">
+                            Hello again. After the valued feedback, we are working on a new feature to upload 
+                            image directly through the camera and analyze it.
+                        </p>
+                    </div>
+                    <div id="newCaptioncam" class="showBlockcam d-none">
+                    </div>
                 </div>
-                <p>
-                    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla porttitor accumsan tincidunt. Cras ultricies ligula sed magna dictum porta.
-                </p>
             </div>
-        </div>  <!-- end about-process -->
+        </div>   <!-- end livetest-process -->
     </section> <!-- end s-about -->
     <!-- contact
     ================================================== -->
     <section id="contact" class="s-contact target-section">
-        <div class="row section-header" data-aos="fade-up">
+        <div class="row section-header">
             <div class="col-full">
-                <h3 data-num="02" class="subhead">Get In Touch</h3>
+                <h3 data-num="@" class="subhead">About Us</h3>
+
+                <p class="lead" style="color:aliceblue;">
+                    We are the student of Graphic Era University located in Dehradun, Uttarakhand.
+                    We created this project to implement deep learning models and web technologies.
+                    The model is trained on COCO dataset using tensorflow and the Flask framework is used
+                    to run the model online. HTML, CSS, JavaScript, Jquery, Bootstrap is used to create
+                    UI design and provide functionality.
+                    <br>
+                </p>
                 <h1 class="display-1 display-1--light">
-                    Have an idea or an epic project in mind? Talk to
-                    us. Let’s work together and make something
-                    great. Drop us a line at <a href="mailto:#0">hello@stellar.com</a>
-                </h1>
-                <h1 class="display-1 display-1--light">
-                    Have an idea or an epic project in mind? Talk to
-                    us. Let’s work together and make something
-                    great. Drop us a line at <a href="mailto:#0">hello@stellar.com</a>
+                    Have some feedback in mind? Talk to
+                    us. We'll work on those feedbacks to make it
+                    better. Drop us a line at <a href="mailto:#0">hello@AIgaze.com</a>
                 </h1>
             </div>
         </div>
     </section> <!-- end s-contact -->
-
     <!-- footer
     ================================================== -->
     <footer>
@@ -203,6 +204,7 @@
     <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <!-- <script type="{{ url_for('static', filename='js/webcam.min.js') }}"></script> -->
     <script src="{{ url_for('static', filename='js/function.js') }}"></script>
 
 </body>
