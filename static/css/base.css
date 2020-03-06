@@ -104,14 +104,6 @@ sup {
   vertical-align: baseline;
 }
 
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
 
 img {
   border-style: none;
@@ -179,20 +171,6 @@ legend {
   white-space: normal;
 }
 
-progress {
-  display: inline-block;
-  vertical-align: baseline;
-}
-
-textarea {
-  overflow: auto;
-}
-
-[type="checkbox"],
-[type="radio"] {
-  box-sizing: border-box;
-  padding: 0;
-}
 
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
