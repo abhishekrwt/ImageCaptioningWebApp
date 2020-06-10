@@ -45,6 +45,7 @@ function validateImage() {
     return true;
 }
 
+// ########################### ui hide/show #############################
 
 $(".dropzone").change(function() {
   readFile(this);
@@ -71,7 +72,7 @@ function myFormReset() {
 }
 
 
-// ############################### Finding Caption ########################################
+// ############################### Finding Caption Upload ########################################
 
 function setValueInId(capt){
     //var data=document.getElementById('ret').textContent=capt;
@@ -93,10 +94,9 @@ $(function () {
                         x: e.target.result
                     },
                     function (d) {
-                        console.log("here in json");
+                        //console.log("here in json");
                         s=d.toString();
                         setValueInId(s);
-                        //document.getElementById('ret').textContent=s;
                         console.log(s);
                     }
                 );
@@ -119,42 +119,69 @@ function getPreText() {
     return coolstr[Math.floor(Math.random() * coolstr.length)];
 }
 
-/*
 //################################# Web Camera ######################################
-var shutter = new Audio();
-shutter.autoplay = true;
-shutter.src = 'shutter.mp3';
 
 Webcam.set({
-    width: 600,
-    height: 420,
     image_format: 'jpeg',
     jpeg_quality: 90
 });
 Webcam.attach('#my_camera'); 
 
-
 function take_snapshot() {
-    shutter.play();
-    // take snapshot and get image data
-    Webcam.snap(function (data_uri) {
-        // display results in page
+    Webcam.snap(function (data_uri) {  
+        console.log("snap taken inside");    
         document.getElementById('imgbodycam').innerHTML =
-            '<img src="' + data_uri + '"/>';
+            '<img id="snapimg" src="' + data_uri + '"/>';
         $('.showBlockcam').removeClass('d-none');
         $('.hideBlockcam').addClass('d-none');
+        Webcam.reset();
     });
 }
 
 function myCamReset() {
+    Webcam.attach('#my_camera'); 
     document.getElementById("imgbodycam").innerHTML = "";
     $('.hideBlockcam').removeClass('d-none');
     $('.showBlockcam').addClass('d-none');
     document.getElementById("newCaptioncam").innerHTML = "";
 }
+$(function () {
+    $('#findCaptioncam').bind('click', function () {
+        var snapimg = document.getElementById('snapimg').src;
+        if (snapimg != null) {
+            document.getElementById("newCaptioncam").innerHTML =
+        '<div class="loadAnimation"><span class="loader"><span class="loader-inner"></span></span><p style="margin : 100px 0 0 100px;" >Analyzing Image..</p></div>';
+            var img = new Image();
+            img.onload = function (e) {
+                console.log("waiting predict");
+                console.log(img.src);
+                $.getJSON('/predict', {
+                        x: img.src
+                    },
+                    function (d) {
+                        //console.log("here in json");
+                        s=d.toString();
+                        setCamInId(s);
+                        console.log(s);
+                    }
+                );
+
+            }
+            img.src=snapimg;
+        }
+        return false;
+    });
+});
+
+function setCamInId(capt){
+    //var data=document.getElementById('ret').textContent=capt;
+    var htmlPreview = '<h1 class="display-1" style="color: #fc6b03; font-size: 36px" >Image Caption Generated</h1>' +
+            '<p class="lead">' + getPreText() + capt + '</p>';
+        document.getElementById("newCaptioncam").innerHTML = htmlPreview;
+}
 
 
-$('#findCaptioncam').bind('click', function () {
+    /*
     if (window.screen.width < 480) {
         $('html,body').animate({
             scrollTop: $("#valueCaptioncam").offset().top
@@ -172,5 +199,4 @@ $('#findCaptioncam').bind('click', function () {
         document.getElementById("newCaptioncam").innerHTML = htmlPreview;
     }, 5000);
 
-});
-*/
+});*/
