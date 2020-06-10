@@ -1,17 +1,16 @@
 from flask import Flask, render_template, request, jsonify
 import numpy as np
 from PIL import Image
-from keras.models import model_from_json
 import pickle
 import tensorflow as tf
-from tensorflow.python.keras import backend as K
-from tensorflow.python.keras.models import Model
-from tensorflow.python.keras.applications import VGG16
-from tensorflow.python.keras.preprocessing.text import Tokenizer
+from keras import backend as K
+from keras.models import Model
+from keras.applications import VGG16
+import joblib
+from joblib import load, dump
+from keras.preprocessing.text import Tokenizer
 import base64
 from tensorflow.python.keras.backend import set_session
-
-from token_wrapper import TokenizerWrap
 
 app = Flask(__name__)
 
@@ -21,14 +20,30 @@ graph = tf.compat.v1.get_default_graph()
 with graph.as_default():
 	set_session(sess)
 	global model
-	model = tf.keras.models.load_model('model_and_weights.h5')
+	model = tf.compat.v1.keras.models.load_model('model_and_weights.h5')
 	print("Loaded model from disk")
 
-captions_train_flat = open('captions_train_flat.pkl','rb')
-captions_train_flat = pickle.load(captions_train_flat)
-num_words = 10000
+class TokenizerWrap(Tokenizer):
+    def __init__(self, texts, num_words=None):
+        Tokenizer.__init__(self, num_words=num_words)
+        self.fit_on_texts(texts)
+        self.index_to_word = dict(zip(self.word_index.values(), self.word_index.keys()))
 
-tokenizer = TokenizerWrap(texts=captions_train_flat, num_words=num_words)
+    def token_to_word(self, token):
+        word = " " if token == 0 else self.index_to_word[token]
+        return word 
+
+    def tokens_to_string(self, tokens):
+        words = [self.index_to_word[token] for token in tokens if token != 0]
+        text = " ".join(words)
+        return text
+    
+    def captions_to_tokens(self, captions_listlist):
+        tokens = [self.texts_to_sequences(captions_list) for captions_list in captions_listlist]
+        return tokens
+
+tokenizer = open('tokenizer.pkl', 'rb')
+tokenizer = joblib.load(tokenizer)
 
 image_model = VGG16(include_top=True, weights='imagenet')
 
@@ -109,8 +124,11 @@ def predict():
 		description = generate_caption("uploadimage.jpg")
 		print(description)
 		return jsonify(description)
-		# return render_template('index.html', prediction = description)
+		return render_template('index.html', prediction = description)
+	print("nahi")
+    
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
 	print("when")
-	app.run(threaded=True, port=5000)
+	app.run(debug=False)

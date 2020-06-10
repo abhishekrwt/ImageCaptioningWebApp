@@ -5,7 +5,13 @@ pip install flask 1.0.2
 pip install tensorflow==1.14.0
 pip install keras==2.2.5
 pip install Image
+pip install joblib
 
+1.open anaconda prompt
+2.conda activate webapp
+3.python app.py
+
+(older)
 set FLASK_APP=app2.py
 flask run
 
