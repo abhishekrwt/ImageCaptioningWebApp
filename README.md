@@ -1,3 +1,3 @@
 # ImageCaptioningWebApp
 
-run requirement to setup environment for this project.
+go through installationProcess.txt to run the code.
