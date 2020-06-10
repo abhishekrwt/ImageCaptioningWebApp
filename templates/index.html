@@ -5,7 +5,7 @@
     ================================================== -->
     <meta charset="utf-8">
     <title>Image Captioner</title>
-    <meta name="description" content="Generates captions after analizing the inputtef image.">
+    <meta name="description" content="Generates captions after analyzing the inputed image.">
     <meta name="author" content="AAHS">
 
     <!-- mobile specific metas
@@ -20,8 +20,9 @@
 
     <!-- script
     ================================================== -->
+    <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/webcam.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/modernizr.js') }}"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <!-- favicons
     ================================================== -->
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
@@ -59,8 +60,8 @@
         <div class="home-content">
             <div class="row home-content__main">
                 <h1>
-                    We provide creative <br>
-                    solutions to transform your <br>
+                    We find creative <br>
+                    solutions to transform <br>
                     dreams into digital reality
                 </h1>
 
@@ -106,7 +107,7 @@
 
                 <div class="row showBlock d-none">
                     <div class="col-six tab-full"><button type="button" class="btn btn--stroke full-width" style="color: #f28722;" onclick="myFormReset()">Reset Field</button></div>
-                    <div class="col-six tab-full"><button type="button" id="findCaptions" class="btn btn--primary full-width">Find Me Caption</button></div>
+                    <div class="col-six tab-full"><button type="button" id="findCaptions" class="btn btn--primary full-width">Find Caption</button></div>
                 </div>
             </div>
 
@@ -126,6 +127,7 @@
     </section> <!-- end s-ICTool -->
     <!-- livetest
     ================================================== -->
+    
     <section id="livetest" class="s-about target-section">
         <div class="row text-center" style="margin-top: -10px;">
             <div class="col-twelve tab-full">
@@ -134,27 +136,28 @@
         </div>
         <div class="row" id="valueCaptioncam">
             <div class="col-six tab-full" style="margin-bottom:40px;">
-                <div id="imgbodycam"></div>
-                <div class="">
-                    <div id="my_camera" style="height:380px;width:100%;border:2px solid black; text-align:center;">Coming Soon</div>
+                <div id="imgbodycam" class="showBlockcam d-none"></div>
+                <div class="hideBlockcam">
+                    <div id="my_camera" class="webcamstyle"></div>
                 </div>
-
-                <div class="row hideBlockcam d-none">
-                    <div class="col-six tab-full"><button type="button" class="btn btn--stroke full-width" style="color: #f28722;" onclick="myCamReset()">Reset The Field</button></div>
-                    <div class="col-six tab-full"><button type="button" id="findCaptioncam" class="btn btn--primary full-width">Find Me Caption</button></div>
+                <div class="row showBlockcam d-none">
+                    <div class="col-six tab-full"><button type="button" class="btn btn--stroke full-width" style="color: #f28722;" onclick="myCamReset()">Reset Field</button></div>
+                    <div class="col-six tab-full"><button type="button" id="findCaptioncam" class="btn btn--primary full-width">Find Caption</button></div>
+                </div>
+                <div class="row hideBlockcam">
+                    <div class="col-six tab-full"><button type="button" class="btn btn--primary full-width" onclick="take_snapshot()">Click Pic</button></div>
                 </div>
             </div>
 
             <div class="col-six tab-full">
                 <div class="row section-header" style="width: 100%;height:100%">
                     <div class="hideBlockcam">
-                        <h1 class="display-1" style="color: #fc6b03; font-size: 36px">UNDER CONSTRUCTION</h1>
+                        <h1 class="display-1" style="color: #fc6b03; font-size: 36px">Camera Click</h1>
                         <p class="lead">
-                            Hello again. After the valued feedback, we are working on a new feature to upload 
-                            image directly through the camera and analyze it.
+                            Upload image directly through the web camera and analyze it.
                         </p>
                     </div>
-                    <div id="newCaptioncam" class="showBlockcam d-none">
+                    <div id="newCaptioncam" class="showBlockcam d-none">{{prediction}}
                     </div>
                 </div>
             </div>
@@ -200,11 +203,9 @@
         </div>
     </footer>
     <!-- Java Script
-    ================================================== -->
-    <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+    ================================================== -->   
     <script src="{{ url_for('static', filename='js/plugins.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    <!-- <script type="{{ url_for('static', filename='js/webcam.min.js') }}"></script> -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>  
     <script src="{{ url_for('static', filename='js/function.js') }}"></script>
 
 </body>
