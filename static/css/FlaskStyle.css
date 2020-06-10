@@ -17,6 +17,13 @@
     font-size: 16px;
 }
 
+.webcamstyle{
+    height:380px;
+    width:100%;
+    border:2px solid black; 
+    text-align:center;
+}
+
 @media only screen and (max-width:600px) {
     .dropzone-wrapper {
         border: 2px dashed #91b0b3;
@@ -34,6 +41,12 @@
         width: 40%;
         top: 60px;
         font-size: 16px;
+    }
+    .webcamstyle{
+        height:180px;
+        width:100%;
+        border:2px solid black; 
+        text-align:center;
     }
 }
 
